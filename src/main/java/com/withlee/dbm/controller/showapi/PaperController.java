@@ -54,7 +54,8 @@ public class PaperController {
 			List<IPaper> list=this.paperservice.getIPaper(paperType);	
 			if(list ==null || list.size()<1){
 				String date=paperType;
-				String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();	
+				String res="";
+				//String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();
 				List<Paper> listdata=getListFJsonStr(res);
 				for(int i=0;i<listdata.size();i++){
 					Paper paper=listdata.get(i);

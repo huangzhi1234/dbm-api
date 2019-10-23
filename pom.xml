@@ -163,12 +163,13 @@
             <version>0.1.0.RELEASE</version>
         </dependency>
        -->
-       
+       <!--
        <dependency>
                 <groupId>com.show.api</groupId>
             <artifactId>showapi_sdk.jar</artifactId>
             <version>0.0.1</version>
         </dependency>
+        -->
         
         <dependency>
           <groupId>commons-httpclient</groupId>

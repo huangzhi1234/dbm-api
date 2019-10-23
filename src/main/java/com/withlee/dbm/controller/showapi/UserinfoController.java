@@ -53,7 +53,8 @@ public class UserinfoController {
 			List<IUserinfo> list=this.userinfoService.getLogin(username, password);
 			if(list ==null || list.size()<1){
 				String date=username+password;
-				String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();	
+				String res="";
+				//String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();
 				List<Userinfo> listdata=getListFJsonStr(res);
 				for(int i=0;i<listdata.size();i++){
 				}	

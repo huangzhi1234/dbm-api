@@ -135,6 +135,7 @@ public class HistorytodayController {
 	/**
 	 * 根据年/月/日查询历史上的今天
 	 */
+	/*
 	@RequestMapping(value = "/list/{syear}/{smounth}/{sday}", method = RequestMethod.GET)
 	@ResponseBody
 	public CommonResponse getHistorytoday(@PathVariable String syear,@PathVariable String smounth,@PathVariable String sday) throws Exception {
@@ -185,7 +186,7 @@ public class HistorytodayController {
 			return new CommonResponse("查询[历史上的今天]异常");
 		}
 
-	}
+	}*/
 	
 	public List<HistoryToday> getListFJsonStr(String res){
 		

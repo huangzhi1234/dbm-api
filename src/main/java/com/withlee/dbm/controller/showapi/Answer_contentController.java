@@ -55,7 +55,8 @@ public class Answer_contentController {
 			List<Ianswer_content> list=this.answer_contentservice.getanswer_content(questId);	
 			if(list ==null || list.size()<1){
 				String date=questId;
-				String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();	
+				//String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();
+				String res="";
 				List<Answer_content> listdata=getListFJsonStr(res);
 				for(int i=0;i<listdata.size();i++){
 					Answer_content answer_content=listdata.get(i);

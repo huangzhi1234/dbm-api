@@ -54,7 +54,8 @@ public class Quest_contentController {
 			List<Iquest_content> list=this.quest_contentservice.getquest_content(questType);	
 			if(list ==null || list.size()<1){
 				String date=questType;
-				String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();	
+				//String res=ShowApiComm.callShowApi(address).addTextPara("date",date).post();
+				String res="";
 				List<Quest_content> listdata=getListFJsonStr(res);
 				for(int i=0;i<listdata.size();i++){
 					Quest_content quest_content=listdata.get(i);

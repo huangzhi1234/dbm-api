@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.order.AddressMapper">
+	
+	<!-- 查询收货地址 -->
+	<select id="getAddress"  resultType="TblUserAddress">
+		SELECT * FROM tbl_user_address where user_id=#{userid} 
+		<if test="addressId != null and addressId != ''  ">AND address_id=#{addressId}</if> 
+		<if test="addressId == null and addressId == ''  ">AND is_default=1</if> 
+		
+		limit 1;
+	</select>
+	
+	<!-- 查询收货地址列表 -->
+	<select id="getAddressList" parameterType="int" resultType="TblUserAddress">
+		SELECT * FROM tbl_user_address where user_id=#{userId};
+	</select>
+	
+	<!-- 新增收货地址 -->
+	<insert id="addAddress" parameterType="TblUserAddress" useGeneratedKeys="true" keyProperty="addressId">
+		INSERT INTO tbl_user_address(user_id,address,province,city,phone,zip_code,receiver,is_default,district)  
+		VALUES(#{userId},#{address},#{province},#{city},#{phone},#{zipCode},#{receiver},#{isDefault},#{district});
+	</insert>
+	
+	<!-- 修改收货地址 -->
+	<update id="updateAddress" parameterType="TblUserAddress">
+		UPDATE tbl_user_address 
+		SET address=#{address},
+			province=#{province},
+			city=#{city},
+			phone=#{phone},
+			zip_code=#{zipCode},
+			receiver=#{receiver},
+			is_default=#{isDefault},
+			district=#{district}
+		WHERE user_id=#{userId} AND address_id=#{addressId}
+	</update>
+	
+	<!-- 删除收货地址 -->
+	<delete id="delAddress" >
+		delete from tbl_user_address where address_id=#{addressid} and user_id=#{userid}
+	</delete>
+	
+	<!-- 下单接口-检查用户收货地址是否存在 -->
+	<select id="checkAddressExist"  resultType="TblUserAddress">
+		SELECT * FROM tbl_user_address where user_id=#{userid} and address_id=#{addressid};
+	</select>
+	
+	<!-- 清空用户现有默认地址 -->
+	<update id="updateIsDefault" parameterType="int" >
+		UPDATE tbl_user_address 
+		SET is_default=0
+		WHERE user_id=#{userId} 
+	</update>
+	
+</mapper>

@@ -1,0 +1,37 @@
+[dbm-api] 16:12:36.605 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 16200 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 16:12:38.897 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 16:12:39.925 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 16:12:42.540 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 16:12:42.542 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 16:12:42.792 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 16:12:45.383 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 16:12:45.394 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 16:12:45.403 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 16:12:45.470 [main] INFO  com.withlee.dbm.Application - Started Application in 9.186 seconds (JVM running for 10.117)
+[dbm-api] 16:13:23.958 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 16:13:24.842 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 17:21:48.181 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 2076 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 17:21:50.388 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 17:21:51.336 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 17:21:54.051 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 17:21:54.053 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 17:21:54.293 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 17:21:56.783 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:21:56.798 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:21:56.803 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 17:21:56.857 [main] INFO  com.withlee.dbm.Application - Started Application in 9.05 seconds (JVM running for 9.988)
+[dbm-api] 17:22:06.336 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 17:22:06.417 [http-nio-8001-exec-1] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 17:22:07.964 [http-nio-8001-exec-3] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 17:24:31.381 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 8352 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 17:24:33.329 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 17:24:34.284 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 17:24:37.019 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 17:24:37.021 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 17:24:37.193 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 17:24:40.072 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:24:40.084 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:24:40.089 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 17:24:40.126 [main] INFO  com.withlee.dbm.Application - Started Application in 9.082 seconds (JVM running for 10.187)
+[dbm-api] 17:24:45.021 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 17:26:07.186 [http-nio-8001-exec-5] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]

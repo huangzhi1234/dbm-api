@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.order.OrderMapper">
+
+	<!-- 下单第1步:往订单表插记录,返回tbl_order_info表的order_id -->
+	 <insert id="addOrder" parameterType="OrderPlace" useGeneratedKeys="true" keyProperty="orderId">
+       INSERT INTO tbl_order_info(order_num,price,total_price,discount_way,discount_code,order_time,status,depiction,address_id,order_product_name,logistics_mode,logistics_num,pay_type,pay_time,send_product_time,end_time,user_id,dispatching,dispatching_type,order_from,order_img_url) 
+	   VALUES (#{orderNum},#{price},#{totalPrice},#{discountWay},#{discountCode},#{orderTime},#{status},#{depiction},#{addressId},#{orderProductName},#{logisticsMode},#{logisticsNum},#{payType},#{payTime},#{sendProductTime},#{endTime},#{userId},#{dispatching},#{dispatchingType},#{orderFrom},#{orderImgUrl});
+	</insert>
+
+	<!-- 下单第2步 :循环插入订单商品表-->
+	 <insert id="addOrderProduct" parameterType="OrderProduct" >
+       INSERT  INTO tbl_order_product(order_id,goods_id,total_price,pro_size,product_num,url,attr_desc,goods_name,unit_price,scene_name)
+	   VALUES (#{orderId},#{goodsId},#{totalPrice},#{proSize},#{productNum},#{url},#{attrDesc},#{goodsName},#{unitPrice},#{sceneName});
+	</insert>
+	
+	<!-- 下单第3步:插入订单地址 -->
+	 <insert id="addOrderAddress" parameterType="OrderAddress" >
+       INSERT INTO tbl_order_address(user_id,order_id,address,province,city,phone,zip_code,receiver,district)  
+		VALUES(#{userId},#{orderId},#{address},#{province},#{city},#{phone},#{zipCode},#{receiver},#{district});
+	</insert>
+
+	<!-- 下单第4步:插入订单发票信息 -->
+	<insert id="addOrdeInvoice" parameterType="OrderInvoice" >
+		INSERT INTO tbl_order_invoice(order_id,create_invoice_time,user_id,invoice_content,invoice_type,comment)  
+		VALUES(#{orderId},#{createInvoiceTime},#{userId},#{invoiceContent},#{invoiceType},#{comment});
+	</insert>
+	
+	<!-- 取消订单 -->
+	<update id="delOrder" >
+		UPDATE tbl_order_info 
+		SET status = 7,
+		    end_time = #{date}
+		WHERE user_id = #{userid} 
+		AND order_id = #{orderid}
+	</update>
+	
+	<!-- 查询订单列表接口  -->
+	 <select id="getOrderList"  resultType="OrderPlace">
+		SELECT * FROM  tbl_order_info where 1=1
+		  <!-- 用户ID -->
+		  <if test="#{userid} != null and #{userid} != ''  ">AND user_id = #{userid}</if>
+		  <!-- 订单状态 -->
+		  <if test="status != null and status != ''  ">AND status LIKE CONCAT(CONCAT('%', #{status}),'%') </if>
+		  ORDER BY order_time DESC
+		  limit #{page},#{limit}
+	</select>
+	 
+	 <!-- 统计订单列表页数 -->
+	<select id="countOrderList"  resultType="int">
+		SELECT CEIL (COUNT(*)/#{limit})
+		  FROM  tbl_order_info where 1=1
+		  <!-- 用户ID -->
+		  <if test="#{userid} != null and #{userid} != ''  ">AND user_id = #{userid}</if>
+		  <!-- 订单状态 -->
+		  <if test="status != null and status != ''  ">AND status LIKE CONCAT(CONCAT('%', #{status}),'%') </if>
+	</select>
+	 
+	 <!-- ***********查询订单列表开始**************  -->
+	 <!-- 1. 获取订单信息  -->
+	 <select id="getOrderDetail"  resultType="OrderPlaceVo">
+		SELECT * FROM  tbl_order_info 
+		where user_id = #{userid}
+		 AND order_id=#{orderid}
+	</select>
+	
+	<!-- 2. 获取订单商品  -->
+	<select id="getOrderProduct"  resultType="OrderProduct">
+		SELECT * FROM  tbl_order_product 
+		where order_id=#{orderid}
+	</select>
+	
+	<!-- 私人衣橱.获取订单商品  -->
+	<select id="getOrderProductByUserId"  resultType="EcsGoodsVo">
+		SELECT t2.goods_id,t2.goods_name,t2.unit_price AS shop_price,t2.url AS goods_thumb,t3.goods_desc,t3.scene_name,t4.scene_img_url,t4.scene_id
+		FROM tbl_order_info t1,tbl_order_product t2,ecs_goods t3,tbl_scene t4
+		WHERE 1=1
+		AND t4.scene_name LIKE CONCAT(CONCAT('%', #{sceneName}),'%')
+		AND t3.scene_name LIKE CONCAT(CONCAT('%', #{sceneName}),'%')
+		AND t1.order_id = t2.order_id
+		AND t2.goods_id = t3.goods_id
+		<if test="userId != null and userId != ''  ">AND t1.user_id=#{userId}</if>
+		<!-- 商品名称 -->
+		<if test="goodsId != null and goodsId != ''  ">AND t3.goods_Id =#{goodsId} </if>
+		<if test="goodsId != null and goodsId != ''  ">GROUP BY t2.goods_id  </if>
+		ORDER BY RAND() LIMIT 1
+	</select>
+	
+	<!-- ***********查询订单列表结束***********  -->
+	
+	<!-- 修改订单状态   -->
+	<update id="updateOrderStatus" parameterType="OrderStatusVo">
+		UPDATE tbl_order_info 
+		SET status = #{status},
+		    pay_time = #{date},
+		    pay_type = #{payType}
+		WHERE user_id = #{userid} 
+		AND order_id = #{orderid}
+	</update>
+	
+	<!-- 查订单收货地址-->
+	<!-- 1. 获取订单信息  -->
+	 <select id="getOrderAddress" parameterType="int" resultType="OrderAddress">
+		SELECT * FROM tbl_order_address 
+		WHERE order_id=#{orderId}
+	</select>
+	
+	 <!-- 查询订单详情(支付宝使用)  -->
+	 <select id="getOrderDetailByNum"  resultType="OrderPlaceVo">
+		SELECT * FROM  tbl_order_info 
+		where order_num = #{orderNum}
+	</select>
+	
+</mapper>

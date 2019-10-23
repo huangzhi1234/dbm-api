@@ -1,0 +1,164 @@
+[dbm-api] 16:41:38.942 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 12476 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 16:41:41.065 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 16:41:42.065 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 16:41:45.073 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 16:41:45.074 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 16:41:45.308 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 16:41:47.836 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 16:41:47.853 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 16:41:47.858 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 16:41:47.886 [main] INFO  com.withlee.dbm.Application - Started Application in 9.271 seconds (JVM running for 10.116)
+[dbm-api] 17:31:58.287 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 20676 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 17:32:01.047 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 17:32:01.958 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 17:32:12.093 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 17:32:12.094 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 17:32:12.389 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 17:32:50.324 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariCP pool HikariPool-0 is shutting down.
+[dbm-api] 17:32:50.345 [main] INFO  org.apache.catalina.core.StandardService - Stopping service Tomcat
+[dbm-api] 17:32:50.362 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-1 is starting.
+[dbm-api] 17:32:50.532 [main] ERROR org.springframework.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'alipayController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.service.order.OrderService com.withlee.dbm.controller.alipay.AlipayController.orderService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.persistence.mapper.order.OrderMapper com.withlee.dbm.service.order.impl.OrderServiceImpl.orderMapper; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.withlee.dbm.persistence.mapper.order.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:109) ~[spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:691) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:961) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:950) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at com.withlee.dbm.Application.main(Application.java:29) [classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.service.order.OrderService com.withlee.dbm.controller.alipay.AlipayController.orderService; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.persistence.mapper.order.OrderMapper com.withlee.dbm.service.order.impl.OrderServiceImpl.orderMapper; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.withlee.dbm.persistence.mapper.order.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:558) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	... 16 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.persistence.mapper.order.OrderMapper com.withlee.dbm.service.order.impl.OrderServiceImpl.orderMapper; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.withlee.dbm.persistence.mapper.order.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1127) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1051) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:949) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:530) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	... 18 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.withlee.dbm.persistence.mapper.order.OrderMapper com.withlee.dbm.service.order.impl.OrderServiceImpl.orderMapper; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.withlee.dbm.persistence.mapper.order.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:558) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	... 29 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.withlee.dbm.persistence.mapper.order.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1308) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1054) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:949) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:530) ~[spring-beans-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	... 31 common frames omitted
+[dbm-api] 17:38:48.280 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 10392 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 17:38:50.783 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 17:38:52.012 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 17:38:54.800 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 17:38:54.804 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 17:38:55.065 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 17:38:57.618 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:38:57.633 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:38:57.645 [main] ERROR org.apache.coyote.http11.Http11NioProtocol - Failed to start end point associated with ProtocolHandler ["http-nio-8001"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_60]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:343) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:737) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:471) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.coyote.http11.Http11NioProtocol.start(Http11NioProtocol.java:80) [tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:986) [tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:237) [tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:194) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:155) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:270) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:132) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:483) [spring-context-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:109) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:691) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:961) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:950) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at com.withlee.dbm.Application.main(Application.java:29) [classes/:na]
+[dbm-api] 17:38:57.653 [main] ERROR org.apache.catalina.core.StandardService - Failed to start connector [Connector[HTTP/1.1-8001]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8001]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:237) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:194) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:155) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:270) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:132) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:483) [spring-context-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:109) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:691) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:961) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:950) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at com.withlee.dbm.Application.main(Application.java:29) [classes/:na]
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:993) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	... 12 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_60]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_60]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_60]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:343) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:737) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:471) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.coyote.http11.Http11NioProtocol.start(Http11NioProtocol.java:80) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:986) ~[tomcat-embed-core-8.0.15.jar:8.0.15]
+	... 13 common frames omitted
+[dbm-api] 17:38:57.672 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:38:57.672 [main] INFO  org.apache.catalina.core.StandardService - Stopping service Tomcat
+[dbm-api] 17:38:57.696 [main] INFO  org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+[dbm-api] 17:38:57.698 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:38:57.698 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:38:57.704 [main] ERROR org.springframework.boot.SpringApplication - Application startup failed
+java.lang.IllegalStateException: Tomcat connector in failed state
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:165) ~[spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:270) ~[spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:132) ~[spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:483) ~[spring-context-4.1.3.RELEASE.jar:4.1.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:109) ~[spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:691) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:961) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:950) [spring-boot-1.2.0.RELEASE.jar:1.2.0.RELEASE]
+	at com.withlee.dbm.Application.main(Application.java:29) [classes/:na]
+[dbm-api] 17:38:57.755 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariCP pool HikariPool-0 is shutting down.
+[dbm-api] 17:39:13.962 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 6824 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 17:39:17.087 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 17:39:18.472 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 17:39:21.248 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 17:39:21.250 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 17:39:21.494 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 17:39:24.667 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:39:24.679 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 17:39:24.689 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 17:39:24.737 [main] INFO  com.withlee.dbm.Application - Started Application in 11.262 seconds (JVM running for 12.262)
+[dbm-api] 17:39:54.385 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 17:39:54.987 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 17:40:13.656 [http-nio-8001-exec-5] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 17:40:17.590 [http-nio-8001-exec-7] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]

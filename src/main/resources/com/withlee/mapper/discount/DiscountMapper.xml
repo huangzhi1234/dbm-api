@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.discount.DisCountMapper">
+	
+	<!-- 1.校验优惠码是否存在&是否过期 -->
+ 	<select id="checkCouponExist" parameterType="string" resultType="TblEventCoupon">
+ 	SELECT t1.event_id,t1.coupon_num
+ 	FROM tbl_event_coupon t1,tbl_event_info t2
+		WHERE t1.event_id=t2.event_id
+		AND t1.coupon_num=#{couponNum}
+		AND t1.coupon_status=0
+		AND UNIX_TIMESTAMP(NOW()) &lt; t2.end_timestrap;
+	</select>
+	
+	<!-- 检查优惠码是否使用 -->
+	<select id="checkCouponUsed" resultType="int">
+		select count(*) from tbl_event_track where coupon_num =#{couponNum} ;
+	</select>
+	
+	<!-- 查询活动信息-->
+ 	<select id="queryEventInfo" resultType="TblEventInfo">
+		select * from tbl_event_info where event_id=#{event_id}; 
+	</select>
+
+	<!-- 查询未到期活动 -->
+	<select id="queryEventInfoAll" resultType="TblEventInfo">
+		select * from tbl_event_info where UNIX_TIMESTAMP(NOW()) &lt; end_timestrap;
+	</select>
+
+	<!-- 根据用户id查询优惠码 -->
+	<select id="findByUserId"  resultType="CouponVo">
+		SELECT *
+		FROM tbl_event_coupon t1,tbl_event_info t2
+		WHERE t1.event_id=t2.event_id
+		AND t1.user_id=#{userId}
+		AND t1.coupon_status=#{status}
+		AND UNIX_TIMESTAMP(NOW()) &lt; t2.end_timestrap;
+	</select>
+	
+	<!-- 新增优惠码使用信息 -->
+	<insert id="addTblEventTrack" parameterType="TblEventInfo" >
+	   INSERT into tbl_event_track(event_Id,order_id,user_id,create_time,coupon_num,coupon_value) 
+	   VALUES(#{eventId},#{orderId},#{userId},#{createTime},#{couponNum},#{couponValue});
+	</insert>
+	
+	<update id="updateCouponStatus" parameterType="string">
+	UPDATE tbl_event_coupon
+	set coupon_status=1
+	where coupon_num=#{couponNum}
+	</update>
+</mapper>

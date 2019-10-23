@@ -1,0 +1,65 @@
+[dbm-api] 10:32:16.758 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 21248 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 10:32:18.388 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 10:32:19.324 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 10:32:21.373 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 10:32:21.374 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 10:32:21.604 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 10:32:24.301 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:32:24.317 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:32:24.326 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 10:32:24.365 [main] INFO  com.withlee.dbm.Application - Started Application in 7.933 seconds (JVM running for 8.904)
+[dbm-api] 10:44:07.764 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 11596 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 10:44:10.629 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 10:44:11.827 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 10:44:14.781 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 10:44:14.783 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 10:44:15.095 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 10:44:18.674 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:44:18.730 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:44:18.748 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 10:44:18.854 [main] INFO  com.withlee.dbm.Application - Started Application in 11.542 seconds (JVM running for 13.315)
+[dbm-api] 10:44:55.694 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 10:44:55.762 [http-nio-8001-exec-1] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/]
+[dbm-api] 10:44:56.165 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:45:05.289 [http-nio-8001-exec-3] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api]
+[dbm-api] 10:45:05.325 [http-nio-8001-exec-4] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:45:41.076 [http-nio-8001-exec-6] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/test3/list/1]
+[dbm-api] 10:45:41.107 [http-nio-8001-exec-7] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:45:43.976 [http-nio-8001-exec-8] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/test3/list/1]
+[dbm-api] 10:45:44.006 [http-nio-8001-exec-9] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:49:05.246 [main] INFO  com.withlee.dbm.Application - Starting Application on LAPTOP-T7OVDIH0 with PID 17172 (D:\workspaces\dbm-api\target\classes started by think in D:\workspaces\dbm-api)
+[dbm-api] 10:49:07.125 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
+[dbm-api] 10:49:08.132 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP pool HikariPool-0 is starting.
+[dbm-api] 10:49:10.565 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+[dbm-api] 10:49:10.567 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.0.15
+[dbm-api] 10:49:10.782 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[dbm-api] 10:49:13.414 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:49:13.432 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+[dbm-api] 10:49:13.440 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[dbm-api] 10:49:13.484 [main] INFO  com.withlee.dbm.Application - Started Application in 8.576 seconds (JVM running for 9.6)
+[dbm-api] 10:49:23.467 [http-nio-8001-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[dbm-api] 10:49:23.530 [http-nio-8001-exec-1] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/test3/list/1]
+[dbm-api] 10:49:23.708 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:49:25.959 [http-nio-8001-exec-3] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/test3/list/1]
+[dbm-api] 10:49:25.997 [http-nio-8001-exec-4] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:50:10.529 [http-nio-8001-exec-6] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/test3/list/1]
+[dbm-api] 10:50:10.563 [http-nio-8001-exec-7] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:10.846 [http-nio-8001-exec-9] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/]
+[dbm-api] 10:51:10.896 [http-nio-8001-exec-10] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:16.041 [http-nio-8001-exec-1] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/mgr]
+[dbm-api] 10:51:16.074 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:24.741 [http-nio-8001-exec-4] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/mgr/test3]
+[dbm-api] 10:51:24.772 [http-nio-8001-exec-5] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:29.233 [http-nio-8001-exec-6] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/mgr/test3/list]
+[dbm-api] 10:51:29.269 [http-nio-8001-exec-7] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:32.510 [http-nio-8001-exec-8] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/dbm-api/mgr/test3/list/1]
+[dbm-api] 10:51:32.543 [http-nio-8001-exec-9] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:51:42.015 [http-nio-8001-exec-1] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/]
+[dbm-api] 10:51:42.063 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:52:02.976 [http-nio-8001-exec-4] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/]
+[dbm-api] 10:52:03.005 [http-nio-8001-exec-5] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:52:09.388 [http-nio-8001-exec-6] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:52:10.318 [http-nio-8001-exec-7] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/]
+[dbm-api] 10:52:10.541 [http-nio-8001-exec-8] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:54:10.445 [http-nio-8001-exec-2] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]
+[dbm-api] 10:54:28.810 [http-nio-8001-exec-4] ERROR com.withlee.dbm.filter.UserTokenFilter - [doFilterInternal] - access denied [/favicon.ico]

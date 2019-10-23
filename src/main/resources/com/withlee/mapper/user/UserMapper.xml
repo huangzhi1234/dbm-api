@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.user.UserMapper">
+	
+	<!-- 登录返回信息 -->
+	<select id="getUser" resultType="UserAccount">
+		SELECT * FROM  tbl_user_account WHERE account=#{account} and user_password=#{userPassword}
+	</select>
+
+	<!-- 绑定接口 -->
+	 <select id="getBingding" parameterType="string"  resultType="AccountBinding">
+		SELECT * FROM tbl_account_binding WHERE open_id=#{openId}
+	</select> 
+	
+	<!-- 查用户表 -->
+	<select id="getUserInfo" parameterType="int" resultType="UserAccount">
+		SELECT * FROM  tbl_user_account WHERE user_id=#{userId} 
+	</select>
+
+	<select id="findByInvitationId" parameterType="int" resultType="UserAccount">
+		SELECT * FROM  tbl_user_account WHERE invitation_id=#{invitationId}
+	</select>
+	
+	<!-- 注册第一步:往User表插记录,返回UserAccount表的user_id -->
+	 <insert id="addUserAccount" parameterType="AccountBinding" useGeneratedKeys="true" keyProperty="userId">
+        INSERT  INTO tbl_user_account(account,user_password,user_name,phone,email,province,city,sex,age,head_img_url,register_time,last_login_time) 
+		VALUES (#{account},#{userPassword},#{userName},#{phone},#{email},#{province},#{city},#{sex},#{age},#{headImgUrl},#{registerTime},#{lastLoginTime});
+	</insert>
+	
+	<!-- 注册第二步:往绑定表插记录 -->
+	 <insert id="addAccountBingding" parameterType="AccountBinding" >
+        INSERT INTO tbl_account_binding(user_id,open_id,nick_name,province,city,sex,age,head_img_url,binding_time,binding_type,country) 
+        VALUES (#{userId},#{openId},#{nickName},#{province},#{city},#{sex},123,#{headImgUrl},#{bindingTime},#{bindingType},#{country});
+	</insert>
+
+
+	<!-- 更改用户积分 -->
+	<update id="addUserScore" >
+		UPDATE tbl_user_account
+		SET scores = scores + #{score}
+		WHERE user_id = #{userId}
+	</update>
+		
+		
+
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.cupboard.CupboardMapper">
+	
+	<!-- 场景查询 -->
+	<select id="getScene" parameterType="int" resultType="TblScene">
+		SELECT * FROM tbl_scene
+		<!-- 场景名称 -->
+		<if test="sceneId != null and sceneId != ''  ">where scene_id= #{sceneId}</if>
+	</select>
+
+	<!-- 词库查询 -->
+	<select id="wordsFindSceneId" parameterType="string" resultType="int">
+		SELECT scene_id FROM tbl_word_house
+		WHERE word_name REGEXP #{words}
+		limit 1
+	</select>
+	
+	<!-- 增加足迹 -->
+	<insert id="addSpoor" parameterType="TblClothingMatch" >
+        INSERT INTO tbl_clothing_match(user_id,create_time,scene_id,match_keyword,goods_id,goods_name) 
+        VALUES (#{userId},#{createTime},#{sceneId},#{matchKeyword},#{goodsId},#{goodsName});
+	</insert>
+	
+	<!-- 查足迹列表-服装搭配 -->
+		<select id="getSpoor" parameterType="int" resultType="TblClothingMatch">
+		SELECT * FROM tbl_clothing_match
+		where user_id= #{userId}
+	</select>
+
+	<!-- 删除足迹-服装搭配 -->
+	<delete id="delSpoor" parameterType="int">
+		delete from tbl_clothing_match where id=#{spoorId} 
+	</delete>
+	
+	<!-- 私人衣橱-查资讯 -->
+		<select id="getNewsInfo"  resultType="TblNewInfo">
+		SELECT * FROM tbl_new_info ORDER BY id DESC LIMIT 1
+	</select>
+
+	<!-- 私人衣橱-查引导语 -->
+		<select id="getLead"  resultType="TblFashContent">
+		SELECT * FROM tbl_fash_content ORDER BY RAND()  LIMIT 3
+	</select>
+	
+	
+	<!-- 私人衣橱-自动回复 -->
+		<select id="getAntoAnswer"  resultType="TblAutoRepaly">
+		SELECT * FROM tbl_fash_content ORDER BY RAND()  LIMIT 3
+	</select>
+
+</mapper>

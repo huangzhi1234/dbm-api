@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.withlee.dbm.persistence.mapper.shop.ShopMapper">
+	
+	<!-- 查询商品类型信息 -->
+	<select id="getProductType" resultType="String">
+		SELECT DISTINCT TRIM(RIGHT(keywords, 3)) FROM ecs_goods 
+		WHERE keywords NOT LIKE '%女%'
+		AND keywords !="" 
+		AND keywords !="美肤";
+	</select>
+	
+	<!-- 查询商品列表信息 -->
+	<select id="getProductList" parameterType="EcsGoods" resultType="EcsGoods">
+		SELECT t1.goods_id,t1.goods_name,t1.brand_id,t2.brand_name,t1.shop_price,t1.goods_img goods_thumb,t1.original_img,
+        (SELECT COUNT(*) FROM ecs_order_goods g WHERE g.goods_id = t1.goods_id) xiaoshou
+		FROM
+		ecs_goods t1
+		LEFT JOIN ecs_brand t2
+		ON t1.brand_id= t2.brand_id 
+		  WHERE t1.is_on_sale = 1
+		  <!-- status=0表示删除 -->
+		  AND t1.status = 1
+		  <!-- 性别 -->
+		  <if test="is_male_dress != null and is_male_dress != ''  ">AND t1.is_male_dress = #{is_male_dress} </if>
+		  <!-- 关键字 -->
+		  <if test="keywords != null and keywords != ''  ">AND keywords LIKE CONCAT(CONCAT('%', #{keywords}),'%')</if>
+		  ORDER BY goods_id DESC
+		  limit #{page},#{limit}
+	</select>
+	
+	<!-- 统计商品列表信息页数 -->
+	<select id="countProductList" parameterType="EcsGoods" resultType="int">
+		SELECT CEIL (COUNT(*)/#{limit})
+		FROM ecs_goods t1
+		LEFT JOIN ecs_brand t2
+		ON t1.brand_id= t2.brand_id 
+		  where t1.is_on_sale = 1
+		  AND t1.status = 1
+		  <!-- 性别 -->
+		  <if test="is_male_dress != null and is_male_dress != ''  ">AND t1.is_male_dress = #{is_male_dress} </if>
+		  <!-- 关键字 -->
+		  <if test="keywords != null and keywords != ''  ">AND keywords LIKE CONCAT(CONCAT('%', #{keywords}),'%')</if>
+	</select>
+	
+	
+	<!-- 获取商品一级属性 -->
+	<select id="getProLevelOneAttr"  resultType="ProLevelOneAttr">
+	  SELECT DISTINCT t1.attr_id ,t2.attr_name  FROM ecs_goods_attr t1,ecs_attribute t2
+		WHERE t1.attr_id = t2.attr_id
+		AND t1.goods_id= #{productid}
+		ORDER BY t1.attr_id ASC
+	</select>
+	
+	<!-- 获取商品所有属性 -->
+	<select id="getGoodsAttrlist"  resultType="EcsGoodsAttr">
+		 SELECT * FROM ecs_goods_attr WHERE goods_id=#{productid}
+	</select>
+	
+	<!-- 获取商品展示厅(长图片) -->
+	<select id="getGoodsPic"  resultType="EcsGoodsGallery">
+		 SELECT * FROM ecs_goods_gallery WHERE goods_id=#{productid}
+		 ORDER BY IMG_ID ASC
+	</select>
+	
+	<!-- 获取单个商品信息 -->
+	<select id="getSingleGoodsInfo"  resultType="EcsGoods">
+		 SELECT t1.goods_id,t1.goods_name,t1.brand_id,t2.brand_name,t1.shop_price,t1.goods_img goods_thumb,t1.original_img,
+        (SELECT COUNT(*) FROM ecs_order_goods g WHERE g.goods_id = t1.goods_id) xiaoshou,t1.scene_name,t1.desc_img
+		FROM
+		ecs_goods t1
+		LEFT JOIN ecs_brand t2
+		ON t1.brand_id= t2.brand_id 
+		  where goods_id=#{productid}
+	</select>
+	
+	<!-- 获取首页图片 -->
+	<select id="getHomePic"  resultType="String">
+		 SELECT value FROM pic_properties;
+	</select>
+	
+	<!-- 查询商品列表信息(场景名称) -->
+	<select id="getProductListByScene"  resultType="EcsGoodsVo">
+		SELECT t1.*,t2.scene_img_url,t2.scene_id FROM ecs_goods t1,tbl_scene t2
+		  <!-- 场景名称 -->
+		  WHERE t1.scene_name LIKE CONCAT(CONCAT('%', #{sceneName}),'%')
+		  AND t1.goods_id NOT IN(
+		SELECT t2.goods_id
+		FROM tbl_order_info t1,tbl_order_product t2,ecs_goods t3,tbl_scene t4
+		WHERE 1=1
+		AND t4.scene_name LIKE CONCAT(CONCAT('%', #{sceneName}),'%')
+		AND t3.scene_name LIKE CONCAT(CONCAT('%', #{sceneName}),'%')
+		AND t1.order_id = t2.order_id
+		AND t2.goods_id = t3.goods_id
+		<if test="userId != null and userId != ''  ">AND t1.user_id=#{userId}</if>
+		GROUP BY t2.goods_id
+		)
+		  group by t1.goods_id
+		<!--   ORDER BY t1.goods_id DESC
+		  LIMIT 4 -->
+		  ORDER BY RAND() LIMIT 1
+	</select>
+	
+	<!-- 获取首页图片 -->
+	<select id="get3dUrl"  resultType="String">
+		 SELECT file_url FROM tbl_goods_3d WHERE goods_id=#{goods_id} AND spec_desc=#{specZheng};
+	</select>
+	
+	
+</mapper>

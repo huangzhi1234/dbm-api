@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.withlee</groupId>
+    <artifactId>dbm-api</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+
+    <name>dbm-api</name>
+    <description>Simple Service provider</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.2.0.RELEASE</version>
+        <relativePath/>
+        <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis-spring.version>1.2.2</mybatis-spring.version>
+        <hikariCP.version>2.2.5</hikariCP.version>
+        <junit.version>4.12</junit.version>
+        <mockito-all.version>1.10.16</mockito-all.version>
+        <mysql-connector-java.version>5.1.34</mysql-connector-java.version>
+        <qiniu-java-sdk.version>6.1.7.1</qiniu-java-sdk.version>
+        <guava.version>18.0</guava.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikariCP.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+      
+        <dependency>
+	       <groupId>com.qiniu</groupId>
+	       <artifactId>qiniu-java-sdk</artifactId>
+	       <version>[7.0.0, 7.0.99]</version>
+	     </dependency>
+    
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ning</groupId>
+			<artifactId>async-http-client</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.5.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<optional>true</optional>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 留下该JPA的dependency,方便以后使用entityManager -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency> -->
+
+		<!-- 物流api -->
+		<!--  
+        <dependency>
+            <groupId>com.withlee</groupId>
+            <artifactId>showapi-physical-distribution</artifactId>
+            <version>0.1.0.RELEASE</version>
+        </dependency>
+       -->
+       
+       <dependency>
+                <groupId>com.show.api</groupId>
+            <artifactId>showapi_sdk.jar</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>commons-httpclient</groupId>
+           <artifactId>commons-httpclient</artifactId>
+           <version>3.1</version>
+         </dependency>
+         
+         
+     
+      <dependency>
+         <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+           <version>1.6.1</version>
+       </dependency>
+        
+
+    </dependencies>
+    <build>
+		<resources>
+			<!-- <resource>
+				<directory>${project.basedir}/src/main/resources/${env}</directory>
+				<includes>
+					<include>application.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource> -->
+			<!-- <resource>
+				<directory>${project.basedir}/src/main/resources/</directory>
+				<includes>
+					<include>logback.xml</include>
+					<include>whitelist</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource> -->
+		</resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/swagger/*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
+ 

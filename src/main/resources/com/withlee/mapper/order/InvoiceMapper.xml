@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2010-2013 the original author or authors. Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.withlee.dbm.persistence.mapper.order.InvoiceMapper">
+	
+	<!-- 查询发票列表 -->
+	<select id="getInvoiceList" parameterType="int" resultType="InvoiceInfo">
+		SELECT * FROM tbl_invoice_info where user_id=#{userId};
+	</select>
+	
+	<!-- 新增发票 -->
+	<insert id="addInvoice" parameterType="InvoiceInfo" >
+		INSERT INTO tbl_invoice_info(user_id,invoice_content,invoice_type,comment)  
+		VALUES(#{userId},#{invoiceContent},#{invoiceType},#{comment});
+	</insert>
+	
+	<!-- 修改发票 -->
+	<update id="updateInvoice" parameterType="InvoiceInfo">
+		UPDATE tbl_invoice_info 
+		SET  invoice_content=#{invoiceContent},
+		invoice_type=#{invoiceType},
+		comment=#{comment}
+		WHERE user_id=#{userId} AND invoice_id=#{invoiceId}
+	</update>
+	
+	<!-- 删除发票 -->
+	<delete id="delInvoice" >
+		delete from tbl_invoice_info where invoice_id=#{invoiceid} and user_id=#{userid}
+	</delete>
+	
+	<!-- 下单接口:查询发票 -->
+	<select id="getInvoice"  resultType="InvoiceInfo">
+		SELECT * FROM tbl_invoice_info where invoice_id=#{invoiceid} and user_id=#{userid};
+	</select>
+</mapper>
